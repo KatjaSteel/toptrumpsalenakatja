@@ -16,20 +16,13 @@ def get_pokemon():
   }
   return pokemon1
 
-user_pokemon = get_pokemon()
-opponent_pokemon = get_pokemon()
 
-print('Your Pokemon is {}'.format(user_pokemon['name']))
-stat = input('What stat do you want to compare? (height / weight / id) ')
-print('Your {} is {}'.format(stat, user_pokemon[stat]))
+def compare_states(user_pokemon, opponent_pokemon):
+  print('Your Pokemon is {}'.format(user_pokemon['name']))
+  print("Your opponent's Pokemon is {}".format(opponent_pokemon['name']))
 
-if user_pokemon['name'] == 'pikachu':
-  print("You're lucky today! Your pokemon is Pikachu, you're an ultimate winner!")
-elif opponent_pokemon['name'] == 'pikachu':
-  print("Oh no! Your opponent's pokemon is Pikachu, so he won! Better luck next time!")
-
-def compare_states():
-
+  stat = input('What stat do you want to compare? (height / weight / id) ')
+  print('Your {} is {}'.format(stat, user_pokemon[stat]))
   print("Your opponent's pokemon {} is {}".format(stat, opponent_pokemon[stat]))
 
   if user_pokemon[stat] > opponent_pokemon[stat]:
@@ -37,6 +30,18 @@ def compare_states():
   else:
     print('Your opponent won this round!')
 
-compare_states()
+user_pokemon = get_pokemon()
+opponent_pokemon = get_pokemon()
+
+if user_pokemon['name'] == 'pikachu':
+  print("You're lucky today! Your pokemon is Pikachu, you're an ultimate winner!")
+elif opponent_pokemon['name'] == 'pikachu':
+  print("Oh no! Your opponent's pokemon is Pikachu, so he won! Better luck next time!")
+else:
+  compare_states(user_pokemon, opponent_pokemon)
+
+
+
+
 
 
