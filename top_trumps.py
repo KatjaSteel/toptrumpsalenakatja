@@ -30,8 +30,13 @@ def compare_states(user_pokemon, opponent_pokemon):
   else:
     print('Your opponent won this round!')
 
+
 user_pokemon = get_pokemon()
 opponent_pokemon = get_pokemon()
+
+while user_pokemon == opponent_pokemon:
+  user_pokemon = get_pokemon()
+  opponent_pokemon = get_pokemon()
 
 if user_pokemon['name'] == 'pikachu':
   print("You're lucky today! Your pokemon is Pikachu, you're an ultimate winner!")
@@ -39,6 +44,8 @@ elif opponent_pokemon['name'] == 'pikachu':
   print("Oh no! Your opponent's pokemon is Pikachu, so he won! Better luck next time!")
 else:
   compare_states(user_pokemon, opponent_pokemon)
+
+
 
 
 
