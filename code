@@ -2,6 +2,8 @@ import random
 
 import requests
 
+my_lives = 3
+opponent_lives = 3
 
 def random_pokemon():
     pokemon_number = random.randint(1, 151)
@@ -14,23 +16,47 @@ def random_pokemon():
         'id': pokemon['id'],
         'height': pokemon['height'],
         'weight': pokemon['weight'],
+        'base_experience': pokemon['base_experience']
     }
 
+
 my_pokemon = random_pokemon()
-
-print('You chose {}'.format(my_pokemon['name']))
-stat_choice = input('What stat do you want to choose? (height, weight, id) ')
-print('Your chosen stats ' + stat_choice + ': {}'.format(my_pokemon[stat_choice]))
-
 opponent_pokemon = random_pokemon()
+
+print("The battle starts!")
+print('You chose {}'.format(my_pokemon['name']))
 print('Your opponent chose {}'.format(opponent_pokemon['name']))
-print('Opponent pokemon stat: ' + stat_choice + ': {}'.format(opponent_pokemon[stat_choice]))
 
-if my_pokemon[stat_choice] > opponent_pokemon[stat_choice]:
-    print('You and {} win!'.format(my_pokemon['name']))
+while my_lives > 0 and opponent_lives > 0:
+    stat_choice = input('What stat do you want to choose? (height, weight, id, base_experience) ')
+    print('Your chosen stats ' + stat_choice + ': {}'.format(my_pokemon[stat_choice]))
 
-elif my_pokemon[stat_choice] == opponent_pokemon[stat_choice]:
-    print("It's a draw!")
+    print('Opponent pokemon stat: ' + stat_choice + ': {}'.format(opponent_pokemon[stat_choice]))
+
+    if my_pokemon['name'] == 'pikachu':
+        print("You got Pikachu! You won!")
+        my_lives = 0
+
+    elif opponent_pokemon['name'] == 'pikachu':
+        print("Opponent got Pikachu! They won!")
+        opponent_lives = 0
+
+    elif my_pokemon[stat_choice] > opponent_pokemon[stat_choice]:
+        print('You and {} win!'.format(my_pokemon['name']))
+        opponent_lives = opponent_lives - 1
+
+    elif my_pokemon[stat_choice] == opponent_pokemon[stat_choice]:
+        print("It's a draw!")
+
+    else:
+        print('You lost to your opponent and {}!'.format(opponent_pokemon['name']))
+        my_lives = my_lives - 1
+
+
+print('The battle ended!')
+
+if my_lives == 0:
+    print("You lost! (︶︹︺)")
 
 else:
-    print('You lost to your opponent and {}!'.format(opponent_pokemon['name']))
+    print("You won! °˖✧◝(⁰▿⁰)◜✧˖°")
