@@ -13,7 +13,8 @@ def get_pokemon():
         'name': pokemon['name'],
         'id': pokemon['id'],
         'height': pokemon['height'],
-        'weight': pokemon['weight']
+        'weight': pokemon['weight'],
+        'base_experience': pokemon['base_experience']
     }
     return pokemon1
 
@@ -21,7 +22,7 @@ def get_pokemon():
 user_pokemon = get_pokemon()
 opponent_pokemon = get_pokemon()
 
-print('Selecting pokemons...')
+print('Selecting Pokemons...')
 
 def compare_lives(my_lives, opponent_lives):
     my_lives = 3
@@ -30,7 +31,7 @@ def compare_lives(my_lives, opponent_lives):
         print('Your Pokemon is {}'.format(user_pokemon['name']))
         print("Your opponent's Pokemon is {}".format(opponent_pokemon['name']))
 
-        stat = input('What stat do you want to compare? (height / weight / id) ')
+        stat = input('What stat do you want to compare? (height / weight / id / base_experience) ')
         print('Your {} is {}'.format(stat, user_pokemon[stat]))
         print("Your opponent's pokemon {} is {}".format(stat, opponent_pokemon[stat]))
         print('-------------------------------------')
