@@ -21,6 +21,7 @@ def get_pokemon():
 user_pokemon = get_pokemon()
 opponent_pokemon = get_pokemon()
 
+print('Selecting pokemons...')
 
 def compare_lives(my_lives, opponent_lives):
     my_lives = 3
