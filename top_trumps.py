@@ -24,12 +24,11 @@ opponent_pokemon = get_pokemon()
 
 print('Selecting Pokemons...')
 
+
 def compare_lives(my_lives, opponent_lives):
-    my_lives = 3
-    opponent_lives = 3
-    while my_lives > 0 or opponent_lives > 0:
-        print('Your Pokemon is {}'.format(user_pokemon['name']))
-        print("Your opponent's Pokemon is {}".format(opponent_pokemon['name']))
+    print('Your Pokemon is {}'.format(user_pokemon['name']))
+    print("Your opponent's Pokemon is {}".format(opponent_pokemon['name']))
+    while my_lives > 0 and opponent_lives > 0:
 
         stat = input('What stat do you want to compare? (height / weight / id / base_experience) ')
         print('Your {} is {}'.format(stat, user_pokemon[stat]))
@@ -50,21 +49,19 @@ def compare_lives(my_lives, opponent_lives):
             print("And you have {} lives left ".format(my_lives))
             print('-------------------------------------')
 
-        if my_lives == 0 and opponent_lives == 0:
-            print("It's a draw!")
-            break
-        elif my_lives == 0:
-            print("Game over! You lost! (︶︹︺)")
-            break
-        elif opponent_lives == 0:
-            print("Game over! You won! °˖✧◝(⁰▿⁰)◜✧˖°")
-            break
+        else:
+            print("Your states are the same! This round is a draw!")
+
+    if my_lives == 0:
+        print("Game over! You lost! (︶︹︺)")
+
+    elif opponent_lives == 0:
+        print("Game over! You won! °˖✧◝(⁰▿⁰)◜✧˖°")
 
 
 while user_pokemon == opponent_pokemon:
     user_pokemon = get_pokemon()
     opponent_pokemon = get_pokemon()
-
 
 if user_pokemon['name'] == 'pikachu':
     print("You're lucky today! Your pokemon is Pikachu, you're an ultimate winner!")
