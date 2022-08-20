@@ -77,3 +77,5 @@ while play_again == "Y":
     print('-------------------------------------')
     play_again = input("Would you like to play gain? Y/N ")
     print('-------------------------------------')
+
+print("The game has ended. Thanks for playing!")
