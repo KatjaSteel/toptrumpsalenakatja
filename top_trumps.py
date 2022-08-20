@@ -71,9 +71,9 @@ def round():
         print("Oh no! Your opponent's pokemon is Pikachu, so he won! Better luck next time!")
     else:
         compare_lives(3, 3)
-
+        
 while play_again == "Y":
     round()
+    print('-------------------------------------')
     play_again = input("Would you like to play gain? Y/N ")
-
-print("The game has ended. Thanks for playing!")
+    print('-------------------------------------')
